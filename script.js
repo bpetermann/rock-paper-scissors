@@ -3,11 +3,32 @@ let computerSelection;
 let playerSelection;
 let yourCount = 0;
 let cpuCount = 0;
+let result = ""
 
-function game(){
+const playerScore = document.getElementById("playerScore")
+playerScore.innerHTML = "Player Score: " + yourCount
+const cpuScore = document.getElementById("cpuScore")
+cpuScore.innerHTML = "Computer Score: " + cpuCount
+const final = document.getElementById("result")
 
 
-function playRound() {
+const rock = document.querySelector("#rock");
+rock.addEventListener('click', () => {
+playRound( "rock", computerSelection);
+});
+
+const paper = document.querySelector("#paper");
+paper.addEventListener('click', () => {
+playRound( "paper", computerSelection);
+});
+
+const scissors = document.querySelector("#scissors");
+scissors.addEventListener('click', () => {
+playRound( "scissors", computerSelection);
+});
+
+
+function playRound(playerSelection,computerSelection){
 
 function computerPlay() {
   let choice = ["Rock", "Paper", "Scissors"]
@@ -15,64 +36,61 @@ function computerPlay() {
     } 
 
   computerSelection = computerPlay();
-  playerSelection = prompt ("Rock, Paper, Scissors?");
+
 
   if (computerSelection == "Rock" && playerSelection.toLowerCase() == "rock") {
-    return ("Draw! Rock against Rock");
+    result = ("Draw! Rock against Rock");
   } 
-  else if (computerSelection  == "Paper" && playerSelection.toLowerCase() == "rock") {
-    cpuCount++;
-    return ("You Lose! Paper beats Rock");
+  else if (computerSelection == "Paper" && playerSelection.toLowerCase() == "paper") {
+    result =  ("Draw! Paper against Paper");
+  } 
+  else if (computerSelection == "Scissors" && playerSelection.toLowerCase() == "scissors") {
+    result =  ("Draw! Scissors against Scissors");
   } 
   else if (computerSelection == "Scissors" && playerSelection.toLowerCase() == "rock") {
     yourCount++;
-    return ("You Win! Rock beats Scissors");
+    result =  ("You Win! Rock beats Scissors");
   } 
   else if (computerSelection == "Rock" && playerSelection.toLowerCase() == "paper") {
     yourCount++;
-    return ("You Win! Paper beats Rock");
-  } 
-  else if (computerSelection == "Paper" && playerSelection.toLowerCase() == "paper") {
-    return ("Draw! Paper against Paper");
-  } 
-  else if (computerSelection == "Scissors" && playerSelection.toLowerCase() == "paper") {
-    cpuCount++;
-    return ("You Lose! Scissor beats Paper");
-  } 
-  else if (computerSelection == "Rock" && playerSelection.toLowerCase() == "scissors") {
-    cpuCount++;
-    return ("You Lose! Rock beats Scissors");
+    result =  ("You Win! Paper beats Rock");
   } 
   else if (computerSelection == "Paper" && playerSelection.toLowerCase() == "scissors") {
     yourCount++;
-    return ("You Win! Scissors beats Paper");
+    result =  ("You Win! Scissors beats Paper");
+  }  
+  else if (computerSelection == "Scissors" && playerSelection.toLowerCase() == "paper") {
+    cpuCount++;
+    result =  ("You Lose! Scissor beats Paper");
   } 
-  else if (computerSelection == "Scissors" && playerSelection.toLowerCase() == "scissors") {
-    return ("Draw! Scissors against Scissors");
+  else if (computerSelection == "Rock" && playerSelection.toLowerCase() == "scissors") {
+    cpuCount++;
+    result =  ("You Lose! Rock beats Scissors");
   } 
+  else if (computerSelection  == "Paper" && playerSelection.toLowerCase() == "rock") {
+    cpuCount++;
+    result = ("You Lose! Paper beats Rock");
+  } 
+  
+  document.getElementById('result').innerHTML = result
+  playerScore.innerHTML = "Player Score: " + yourCount
+  cpuScore.innerHTML = "Computer Score: " + cpuCount
+  scoreCheck()
+  return
 }
 
-console.log (playRound(playerSelection, computerSelection));
-console.log (playRound(playerSelection, computerSelection));
-console.log (playRound(playerSelection, computerSelection));
-console.log (playRound(playerSelection, computerSelection));
-console.log (playRound(playerSelection, computerSelection));
-
-
-if (yourCount >= 3){
-  console.log ("You Win!")
-  alert ("You Win!")
+function scoreCheck(){
+  if (yourCount >= 5){
+  final.innerHTML = "You Win! Refresh page to play again."
+  rock.disabled = true;
+  paper.disabled = true;
+  scissors.disabled = true;
 }
-else if(cpuCount >= 3)
+else if(cpuCount >= 5)
 {
-  console.log ("You Lose!")
-  alert ("You Lose!")
+  final.innerHTML = "You Lose! Refresh page to play again"
+  rock.disabled = true;
+  paper.disabled = true;
+  scissors.disabled = true;
 }
-else {
-  console.log ("Draw! Nobody Wins")
-  alert ("Draw! Nobody Wins")
 }
-
-}
-
-console.log (game())
