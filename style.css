@@ -1,0 +1,98 @@
+body {
+  background-color: #cc9543;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+#container {
+  margin: 4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+}
+
+#playerScore,
+#cpuScore {
+  font-size: 36px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 2px 3px 0px rgba(150, 150, 150, 1);
+}
+
+#cpuScore {
+  margin-top: -0.5em;
+}
+
+#rock,
+#paper,
+#scissors {
+  background-color: #fff;
+  width: 225px;
+  height: 225px;
+  border: 0.8em double #000000;
+  display: inline;
+  box-shadow: 10px 10px 14px 1px rgba(00, 00, 00, 0.4);
+}
+
+#rock img,
+#scissors img {
+  height: 80%;
+  width: 80%;
+}
+
+#paper img {
+  opacity: 0.8;
+  height: 80%;
+  width: 80%;
+}
+
+#rock:hover,
+#paper:hover,
+#scissors:hover {
+  background-color: #dfe0df;
+}
+
+#result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 4em;
+  font-size: 36px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 2px 3px 0px rgba(150, 150, 150, 1);
+}
+
+@media only screen and (max-width: 600px) {
+  #playerScore,
+  #cpuScore {
+    font-size: 28px;
+  }
+
+  #container {
+    margin: 2em;
+    gap: 1em;
+  }
+
+  #rock,
+  #paper,
+  #scissors {
+    width: 125px;
+    height: 125px;
+  }
+
+  #result {
+    margin: 0em;
+    padding: 1.2em;
+    font-size: 28px;
+  }
+}
