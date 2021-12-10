@@ -60,17 +60,22 @@ body {
   background-color: #dfe0df;
 }
 
-#result {
+#result, #result-description  {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 4em;
+  margin-top: 3em;
   font-size: 36px;
   font-weight: 900;
   color: #fff;
   text-shadow: 2px 3px 0px rgba(150, 150, 150, 1);
 }
+
+#result-description{
+  margin-top: 1em;
+}
+
 
 @media only screen and (max-width: 600px) {
   #playerScore,
@@ -80,7 +85,7 @@ body {
 
   #container {
     margin: 2em;
-    gap: 1em;
+    gap: 1.2em;
   }
 
   #rock,
@@ -91,8 +96,11 @@ body {
   }
 
   #result {
-    margin: 0em;
-    padding: 1.2em;
+    margin-top: 2em;
+    font-size: 28px;
+  }
+  #result-description{
+    margin-top: 1em;
     font-size: 28px;
   }
 }

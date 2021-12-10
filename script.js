@@ -3,12 +3,14 @@ let playerSelection;
 let yourCount = 0;
 let cpuCount = 0;
 let result = '';
+let description = '';
 
 const playerScore = document.getElementById('playerScore');
 playerScore.innerHTML = 'Player Score: ' + yourCount;
 const cpuScore = document.getElementById('cpuScore');
 cpuScore.innerHTML = 'Computer Score: ' + cpuCount;
 const final = document.getElementById('result');
+const finalDescription = document.getElementById('result-description');
 
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', () => {
@@ -34,56 +36,66 @@ function playRound(playerSelection, computerSelection) {
   computerSelection = computerPlay();
 
   if (computerSelection == 'Rock' && playerSelection.toLowerCase() == 'rock') {
-    result = 'Draw! Rock against Rock';
+    result = 'Draw!';
+    description = 'Rock against Rock';
   } else if (
     computerSelection == 'Paper' &&
     playerSelection.toLowerCase() == 'paper'
   ) {
-    result = 'Draw! Paper against Paper';
+    result = 'Draw!'
+    description = 'Paper against Paper';
   } else if (
     computerSelection == 'Scissors' &&
     playerSelection.toLowerCase() == 'scissors'
   ) {
-    result = 'Draw! Scissors against Scissors';
+    result = 'Draw!' 
+    description = 'Scissors against Scissors';
   } else if (
     computerSelection == 'Scissors' &&
     playerSelection.toLowerCase() == 'rock'
   ) {
     yourCount++;
-    result = 'You Win! Rock beats Scissors';
+    result = 'You Win!'
+    description = 'Rock beats Scissors';
   } else if (
     computerSelection == 'Rock' &&
     playerSelection.toLowerCase() == 'paper'
   ) {
     yourCount++;
-    result = 'You Win! Paper beats Rock';
+    result = 'You Win!'
+    description = 'Paper beats Rock';
   } else if (
     computerSelection == 'Paper' &&
     playerSelection.toLowerCase() == 'scissors'
   ) {
     yourCount++;
-    result = 'You Win! Scissors beats Paper';
+    result = 'You Win!'
+    description = 'Scissors beats Paper';
   } else if (
     computerSelection == 'Scissors' &&
     playerSelection.toLowerCase() == 'paper'
   ) {
     cpuCount++;
-    result = 'You Lose! Scissor beats Paper';
+    result = 'You Lose!' 
+    description = 'Scissor beats Paper';
   } else if (
     computerSelection == 'Rock' &&
     playerSelection.toLowerCase() == 'scissors'
   ) {
     cpuCount++;
-    result = 'You Lose! Rock beats Scissors';
+    result = 'You Lose!'
+    description = 'Rock beats Scissors';
   } else if (
     computerSelection == 'Paper' &&
     playerSelection.toLowerCase() == 'rock'
   ) {
     cpuCount++;
-    result = 'You Lose! Paper beats Rock';
+    result = 'You Lose!'
+    description = 'Paper beats Rock';
   }
 
   document.getElementById('result').innerHTML = result;
+  document.getElementById('result-description').innerHTML = description;
   playerScore.innerHTML = 'Player Score: ' + yourCount;
   cpuScore.innerHTML = 'Computer Score: ' + cpuCount;
   scoreCheck();
@@ -92,12 +104,14 @@ function playRound(playerSelection, computerSelection) {
 
 function scoreCheck() {
   if (yourCount >= 5) {
-    final.innerHTML = 'You Win! Refresh page to play again';
+    final.innerHTML = 'You Win!'
+    finalDescription.innerHTML = 'Refresh page to play again';
     rock.disabled = true;
     paper.disabled = true;
     scissors.disabled = true;
   } else if (cpuCount >= 5) {
-    final.innerHTML = 'You Lose! Refresh page to play again';
+    final.innerHTML = 'You Lose!'
+    finalDescription.innerHTML = 'Refresh page to play again';
     rock.disabled = true;
     paper.disabled = true;
     scissors.disabled = true;
