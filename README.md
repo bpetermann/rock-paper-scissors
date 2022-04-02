@@ -1,6 +1,10 @@
-This is Bente's third project!
+# Rock Paper Scissors
 
-A simple implementation of grade-school classic “rock paper scissors”.
+## Project Overview
 
-Coming from: [theodinproject](https://www.theodinproject.com)<br>
-View Live: [here](https://bpetermann.github.io/rock-paper-scissors/)
+### Description
+- A simple implementation of grade-school classic “rock paper scissors”
+- [View Live](https://bpetermann.github.io/rock-paper-scissors/)
+
+### Thanks
+- [theodinproject](https://www.theodinproject.com)<br>
